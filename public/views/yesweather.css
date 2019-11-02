@@ -1,0 +1,123 @@
+@font-face {
+   font-family: 'NanumSquareRound';
+   src: url('NanumSquareRoundR.ttf') format('truetype');
+}
+
+@font-face {
+   font-family: 'Dosis_M';
+   src: url('Dosis-Medium.ttf') format('opentype');
+}
+
+body{
+  font-family: NanumSquareRound; /* here */
+   height: 100%;
+   width: 100%;
+    margin: 0;
+    margin-bottom: 200px;
+    padding: 0;
+   /*background-color: #34c0eb;*/
+   background-color: #0d0e44;
+   
+}
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    color: white;
+    outline: none;
+}
+#TMI{
+	display: flex;
+    justify-content: center;
+    flex-direction: row;
+	text-align: center;
+}
+.tmielement{
+  font-family: Dosis_M; /* here */
+	border-radius: 30px;
+	margin:30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 250px;
+	height: 250px;
+	align-items: vertical;
+	text-align: center;
+}
+.tmielementtext{
+  font-family: Dosis_M;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+
+}
+#theTitle{
+  display: block;
+   color: white;
+   font-size: 53px;
+   margin-top: 50px;
+}
+#chart{
+   position: relative;
+   top: 70%;
+   left: 46%;
+   transform: translateX(-51%); 
+}
+#weatherimg{
+   height: 400px;
+   width: : 400px;
+}
+#TMItot{
+  display: none;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+#tempmain{
+	padding-top: 80px;
+	padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  vertical-align: middle;
+}
+#temp{
+	padding-top: 30px;
+	text-align: center;
+}
+#tempval{
+  font-family: Dosis_M; /* here */
+   padding-left: 60px; /* here */
+   font-size: 300px;
+   color: white;
+}
+#celsiusval{
+   font-size: 200px;
+   color: white;
+}
+#aligning{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+#message{
+   margin: auto;
+   width: fit-content;
+   border-radius: 10px;
+   padding: 6px;
+   padding-left: 12px;
+   padding-right: 12px;
+   text-align: center;
+   font-size: 30px;
+   color: #9be4fa;
+}
+#infobutton{
+	flex: auto;
+}
+#infobutton:hover{
+   color: #4b90eb;
+}
+#infobutton:active{
+   color: #4b90eb;
+}

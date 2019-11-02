@@ -1,0 +1,22 @@
+{
+  "name": "yesweather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "yesweather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "app": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "google": "^2.1.0",
+    "html": "^1.0.0",
+    "http": "0.0.0",
+    "python-shell": "^1.0.8"
+  }
+}

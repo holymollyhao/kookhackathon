@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <script type="text/javascript" src="/yesweather.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="yesweather.css">
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+          console.log("drawing chart")
+          const pointConfig = "point {fill-color: #fcfa83}";
+          var data = google.visualization.arrayToDataTable([
+            ['Time', 'Temp', {'type': 'string', 'role': 'style'}],
+            ["<%= t7_time %>"+"시",  parseFloat("<%= t7_temp %>"), pointConfig],
+            ["<%= t6_time %>"+"시",  parseFloat("<%= t6_temp %>"), pointConfig],
+            ["<%= t5_time %>"+"시",  parseFloat("<%= t5_temp %>"), pointConfig],
+            ["<%= t4_time %>"+"시",  parseFloat("<%= t4_temp %>"), pointConfig],
+            ["<%= t3_time %>"+"시",  parseFloat("<%= t3_temp %>"), pointConfig],
+            ["<%= t2_time %>"+"시",  parseFloat("<%= t2_temp %>"), pointConfig],
+            ["<%= t1_time %>"+"시",  parseFloat("<%= t1_temp %>"), pointConfig],
+            ["<%= t0_time %>"+"시",  parseFloat("<%= t0_temp %>"), pointConfig]
+          ]);
+
+          var options = {
+            lineWidth: 2,
+            colors: ['#fff'],
+            backgroundColor: {
+              'fill': 'transparent'
+            },
+            pointSize: 10,
+            visible: 'false',
+            vAxis: {
+              gridlines: {
+                color: 'transparent'
+              },
+              baselineColor: '#fff',
+              gridlineColor: '#fff',
+              textPosition: 'none'
+            },
+            hAxis: {
+                textStyle:{color: '#FFF'}
+            },
+            annotations : {fontsize: 18},
+            width: 1800,
+            height: 300,
+            legend: { position: 'none' }
+          };
+
+          var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+          chart.draw(data, options);
+          console.log("chart drawn")
+        }}
+    </script>
+
+  </head>
+  <body style="<%= isDay==='1' ? 'background-color: #34c0eb' : 'background-color: #0d0e44'%>">
+   
+    <div id="aligning">
+      <h1 id="theTitle">어제의 날씨</h1>
+      <div id="tempmain">
+        <div>
+          <% if(isDay!=0){ %>
+          <img id="weatherimg" src="/day/<%=sky%>.png" alt="My Image">
+          <% console.log(isDay)} else { %>
+            <img id="weatherimg" src="/night/<%=sky%>.png" alt="My Image">
+          <% } %>
+        </div>
+        <div id="temp">
+          <nobr id="tempval"><%= avg_temp %></nobr>
+          <nobr id="celsiusval">&#8451;</nobr>
+        </div>
+      </div>
+      <div>
+        <p id="message"><%=comment%></p>
+      </div>
+      <br>
+      <br>
+      <div>
+        <button id="inffobutton" onclick="setDisplay()">
+          <img id="img" src="/symbol/angledown.png" width="70px" height="40px">
+        </button>
+      </div>
+
+
+
+
+      <div id="TMItot">
+        <div id="TMI">
+          <button class="tmielement" onmouseover="setText(`<%=min_temp%>~<%=max_temp%>`,this);" onmouseout="setText('TEMP RANGE',this);">
+            <img id="thermometer" src="/symbol/thermometer.png" height="70%" width="70%">
+            <p class="tmielementtext">TEMP RANGE</p>
+          </button>
+          <button class="tmielement" onmouseover="setText(<%= precip %>,this);" onmouseout="setText('RAIN',this);">
+            <img id="precip/snow" src="/symbol/drop.png" height="70%" width="70%">
+            <p class="tmielementtext">RAIN</p>
+          </button>
+          <button class="tmielement" onmouseover="setText(<%=wind%>,this);" onmouseout="setText('WIND',this);">
+            <img id="wind/snow" src="/symbol/wind.png" height="70%" width="70%">
+            <p class="tmielementtext">WIND</p>
+          </button>
+          <button class="tmielement" onmouseover="setText(<%=humid%>,this);" onmouseout="setText('HUMIDITY',this);">
+            <img id="wind/snow" src="/symbol/humidity.png" height="70%" width="70%">
+            <p class="tmielementtext">HUMIDITY</p>
+          </button>
+          <button class="tmielement" onmouseover="setText(<%=cloud%>,this);" onmouseout="setText('CLOUD',this);">
+            <img id="wind/snow" src="/symbol/cloud.png" height="70%" width="70%">
+            <p class="tmielementtext">CLOUD</p>
+          </button>
+        </div>
+        <div>
+          <button>
+            <div id="chart" style="padding-top: 0px; width: 100%; height: 100%"></div>
+            <p class="tmielementtext" style="transform: translateX(-4%);">TEMP GRAPH OVER TIME</p>
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div id="end"></div>
+    </div>
+    
+  </body>
+</html>
