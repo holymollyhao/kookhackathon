@@ -18,7 +18,7 @@ the JSON output given, renders the ejs file.
 ## Features
 
 * Using the information of when the sun sets, the website supports darkmode. When the sun is down, the background of the website
-and the image of the website changes from sky blue to dartk blue, from sun to moon.
+and the image of the website changes from sky blue to dark blue, from sun to moon.
 
 <img width="400" height="230" alt="스크린샷 2019-11-03 오후 3 48 48" src="https://user-images.githubusercontent.com/50355670/68081467-cad0d300-fe51-11e9-9d0e-99ec11d36305.png">    <img width="400" alt="스크린샷 2019-11-03 오후 3 01 03" src="https://user-images.githubusercontent.com/50355670/68081251-4e88c080-fe4e-11e9-9cbc-0a034de892d0.png">
 
